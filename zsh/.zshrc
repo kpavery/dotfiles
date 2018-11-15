@@ -27,7 +27,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-. $HOME/.zshrc.local
+if [[ -a $HOME/.zshrc.local ]]; then
+  . $HOME/.zshrc.local
+fi
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
