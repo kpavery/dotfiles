@@ -63,9 +63,6 @@ path+=$(brew --prefix)/sbin
 # Setup subl
 path+="/Applications/Sublime Text.app/Contents/SharedSupport/bin/"
 
-# Run archey (system information display)
-archey -c -p
-
 # Set up and down arrows to use local history and ctrl-r and similar to use global history
 # ctrl-up and ctrl-down for global history stepping
 bindkey "[A" up-line-or-local-history
@@ -90,3 +87,8 @@ bindkey "^[OB" down-line-or-history  # [CTRL] + Cursor down
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH
+
+# Run archey (system information display)
+echo ""
+archey -c -p
+
