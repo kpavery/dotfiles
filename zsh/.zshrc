@@ -11,7 +11,7 @@ plugins=(
   cloudapp
   common-aliases
   git
-  gitextras
+  git-extras
   osx
   pip
   python
