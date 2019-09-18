@@ -14,7 +14,7 @@ stow: brew
 
 link: stow
 	@echo "Linking config files..."
-	@(test -e $(HOME)/.zshrc && test ! -L $(HOME)/.zshrc && rm $(HOME)/.zshrc)
+	@(test -e $(HOME)/.zshrc && test ! -L $(HOME)/.zshrc && rm $(HOME)/.zshrc) || true
 	@stow --dotfiles -t $(HOME) zsh
 
 unlink: stow
