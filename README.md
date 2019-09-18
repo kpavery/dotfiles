@@ -9,6 +9,7 @@ Check out this repository to somewhere like `~/.dotfiles`. Then run the makefile
 The makefile will:
 - Install homebrew
 - Install my list of brew packages
+- Install [oh my zsh](https://github.com/robbyrussell/oh-my-zsh)
 - Link the dotfiles into the home directory with `stow` (a reversible symlink utility)
 - Patch archey with my custom tweaks to color, formatting, and information displayed
 - Install the [Spaceship](https://github.com/denysdovhan/spaceship-prompt) zsh theme
