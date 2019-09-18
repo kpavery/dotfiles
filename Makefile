@@ -1,6 +1,6 @@
 PATH := .:$(PATH)
 
-all: brew brew-packages link archey zsh-plugins
+all: brew brew-packages oh-my-zsh link archey zsh-plugins
 
 clean: unlink
 
@@ -14,6 +14,7 @@ stow: brew
 
 link: stow
 	@echo "Linking config files..."
+	@(test -e $(HOME)/.zshrc && test ! -L $(HOME)/.zshrc && rm $(HOME)/.zshrc)
 	@stow --dotfiles -t $(HOME) zsh
 
 unlink: stow
@@ -42,3 +43,7 @@ zsh-syntax-highlighting:
 	@echo "Installing zsh syntax highlighting..."
 	@(test -d $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting && echo "zsh syntax highlighting already installed") || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
+oh-my-zsh: SHELL := /bin/zsh
+oh-my-zsh:
+	@echo "Installing oh my zsh..."
+	@(test -d $(HOME)/.oh-my-zsh && echo "oh my zsh already installed") || sh <(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended
