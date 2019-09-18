@@ -2,10 +2,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="spaceship"
 
-HYPHEN_INSENSITIVE="true"
-
-ENABLE_CORRECTION="true"
-
 plugins=(
   brew
   cloudapp
@@ -18,15 +14,20 @@ plugins=(
   sublime
   sudo
   wd
+  z
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
 
+# Allows completion of _ with - and vice versa
+HYPHEN_INSENSITIVE="true"
+
+# Enables correction of commands
+ENABLE_CORRECTION="true"
+
 source $ZSH/oh-my-zsh.sh
 
-
-# User configuration
-
+# Include .zshrc.local, useful for local configuration which will not be checked in such as API keys
 if [[ -a $HOME/.zshrc.local ]]; then
   . $HOME/.zshrc.local
 fi
@@ -63,32 +64,27 @@ path+=$(brew --prefix)/sbin
 # Setup subl
 path+="/Applications/Sublime Text.app/Contents/SharedSupport/bin/"
 
-# Set up and down arrows to use local history and ctrl-r and similar to use global history
-# ctrl-up and ctrl-down for global history stepping
-bindkey "[A" up-line-or-local-history
-bindkey "[B" down-line-or-local-history
+export PATH
 
+# Set up and down arrows to use local history
+# CTRL-R and similar still use global history
 up-line-or-local-history() {
     zle set-local-history 1
     zle up-line-or-history
     zle set-local-history 0
 }
 zle -N up-line-or-local-history
+bindkey '^[OA' up-line-or-local-history     # Cursor up
+
 down-line-or-local-history() {
     zle set-local-history 1
     zle down-line-or-history
     zle set-local-history 0
 }
 zle -N down-line-or-local-history
+bindkey '^[OB' down-line-or-local-history   # Cursor down
 
-bindkey "^[OA" up-line-or-history    # [CTRL] + Cursor up
-bindkey "^[OB" down-line-or-history  # [CTRL] + Cursor down
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export PATH
 
 # Run archey (system information display)
 echo ""
 archey -c -p
-
