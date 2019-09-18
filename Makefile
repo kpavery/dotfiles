@@ -11,10 +11,10 @@ stow: brew
 	is-executable stow || brew install stow
 
 link: stow
-	stow -t $(HOME) zsh
+	@stow --dotfiles -t $(HOME) zsh
 
 unlink: stow
-	stow --delete -t $(HOME) zsh
+	@stow --dotfiles --delete -t $(HOME) zsh
 
 brew-packages: brew
 	brew bundle --file=install/Brewfile
