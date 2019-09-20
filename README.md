@@ -15,5 +15,6 @@ The makefile will:
 - Install the [Spaceship](https://github.com/denysdovhan/spaceship-prompt) zsh theme
 - Install the [autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) zsh plugin
 - Install the [syntax highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) zsh plugin
+- Remove / hush the login message
 
 The above steps will only be performed if the relevant command, plugin, or theme is not already present in the expected location.
