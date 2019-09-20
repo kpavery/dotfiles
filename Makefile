@@ -1,6 +1,6 @@
 PATH := .:$(PATH)
 
-all: brew brew-packages oh-my-zsh link archey zsh-plugins
+all: brew brew-packages oh-my-zsh zsh-plugins hushlogin link archey
 
 clean: unlink
 
@@ -47,3 +47,7 @@ oh-my-zsh: SHELL := /bin/zsh
 oh-my-zsh:
 	@echo "Installing oh my zsh..."
 	@(test -d $(HOME)/.oh-my-zsh && echo "oh my zsh already installed") || sh <(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended
+
+hushlogin:
+	@echo "Removing login message..."
+	@(test -f $(HOME)/.hushlogin && echo "Message already removed") || touch $(HOME)/.hushlogin
