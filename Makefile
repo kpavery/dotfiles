@@ -1,6 +1,6 @@
 PATH := .:$(PATH)
 
-all: brew brew-packages oh-my-zsh zsh-plugins hushlogin link archey
+all: brew brew-packages oh-my-zsh zsh-plugins hushlogin link git archey
 
 clean: unlink
 
@@ -16,6 +16,11 @@ link: stow
 	@echo "Linking config files..."
 	@(test -e $(HOME)/.zshrc && test ! -L $(HOME)/.zshrc && rm $(HOME)/.zshrc) || true
 	@stow --dotfiles -t $(HOME) zsh
+
+git: stow
+	@echo "Updating git config..."
+	@stow --dotfiles -t $(HOME) git
+	@(git config --global include.path .gitconfig.global)
 
 unlink: stow
 	@echo "Removing config file links..."
