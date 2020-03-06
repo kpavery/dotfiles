@@ -36,15 +36,15 @@ archey: brew-packages
 
 zsh-plugins: zsh-spaceship zsh-autosuggestions zsh-syntax-highlighting conda-zsh-completion
 
-zsh-spaceship:
+zsh-spaceship: oh-my-zsh
 	@echo "Installing spaceship prompt..."
 	@(test -s $(HOME)/.oh-my-zsh/custom/themes/spaceship.zsh-theme && echo "spaceship already installed") || (git clone https://github.com/denysdovhan/spaceship-prompt.git $(HOME)/.oh-my-zsh/custom/themes/spaceship-prompt && ln -s $(HOME)/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme $(HOME)/.oh-my-zsh/custom/themes/spaceship.zsh-theme)
 
-zsh-autosuggestions:
+zsh-autosuggestions: oh-my-zsh
 	@echo "Installing zsh auto suggestions..."
-	@(test -d $(HOME)/.oh-my-zsh/custom/plugins/zsh-autosuggestions && echo "zsh auto suggestions already installed") || git clone https://github.com/zsh-users/zsh-autosuggestions $(HOME)/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+	@(test -d $(HOME)/.oh-my-zsh/custom/plugins/zsh-autosuggestions && echo "zsh auto suggestions already installed") || git clone https://github.com/zsh-users/zsh-autosuggestions.git $(HOME)/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
-zsh-syntax-highlighting:
+zsh-syntax-highlighting: oh-my-zsh
 	@echo "Installing zsh syntax highlighting..."
 	@(test -d $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting && echo "zsh syntax highlighting already installed") || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
