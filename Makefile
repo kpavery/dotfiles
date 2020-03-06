@@ -28,7 +28,7 @@ unlink: stow
 
 brew-packages: brew
 	@echo "Installing Homebrew packages..."
-	@brew bundle -q --file=install/Brewfile
+	@brew bundle --file=install/Brewfile
 
 archey: brew-packages
 	@echo "Customizing archey..."
