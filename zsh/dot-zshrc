@@ -5,6 +5,7 @@ ZSH_THEME="spaceship"
 plugins=(
   brew
   cloudapp
+  conda-zsh-completion
   common-aliases
   git
   git-extras
@@ -61,6 +62,9 @@ path+=$(brew --prefix)/sbin
 path+="/Applications/Sublime Text.app/Contents/SharedSupport/bin/"
 
 export PATH
+
+# Enable conda auto completion
+autoload -U compinit && compinit
 
 # Set up and down arrows to use local history
 # CTRL-R and similar still use global history

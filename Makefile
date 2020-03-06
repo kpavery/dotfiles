@@ -34,7 +34,7 @@ archey: brew-packages
 	@echo "Customizing archey..."
 	@patch -N --dry-run --silent $(shell which archey) patches/archey.patch 1>/dev/null && patch $(shell which archey) patches/archey.patch || echo "archey already patched"
 
-zsh-plugins: zsh-spaceship zsh-autosuggestions zsh-syntax-highlighting
+zsh-plugins: zsh-spaceship zsh-autosuggestions zsh-syntax-highlighting conda-zsh-completion
 
 zsh-spaceship:
 	@echo "Installing spaceship prompt..."
@@ -47,6 +47,10 @@ zsh-autosuggestions:
 zsh-syntax-highlighting:
 	@echo "Installing zsh syntax highlighting..."
 	@(test -d $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting && echo "zsh syntax highlighting already installed") || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $(HOME)/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
+conda-zsh-completion: oh-my-zsh
+	@echo "Installing conda zsh completion..."
+	@(test -d $(HOME)/.oh-my-zsh/custom/plugins/conda-zsh-completion && echo "conda zsh completion already installed") || git clone https://github.com/esc/conda-zsh-completion.git $(HOME)/.oh-my-zsh/custom/plugins/conda-zsh-completion
 
 oh-my-zsh: SHELL := /bin/zsh
 oh-my-zsh:
