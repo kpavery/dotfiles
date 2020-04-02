@@ -5,6 +5,7 @@ ZSH_THEME="spaceship"
 plugins=(
   brew
   cloudapp
+  colored-man-pages
   conda-zsh-completion
   common-aliases
   git
