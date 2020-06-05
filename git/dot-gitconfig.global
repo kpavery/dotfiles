@@ -1,2 +1,4 @@
 [alias]
 	lg = log --pretty=oneline --graph --abbrev-commit
+[pull]
+	ff = only
