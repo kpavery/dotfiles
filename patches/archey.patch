@@ -40,6 +40,10 @@
 >   textColor=$(tput setaf 208 2>/dev/null)
 >   bold=$(tput      bold      2>/dev/null)
 >   normal=$(tput    sgr0      2>/dev/null)
+116c116
+<     packagehandler=$(brew list -1 | wc -l | awk '{print $1 }')
+---
+>     packagehandler=$(brew list --formula -1 | wc -l | awk '{print $1 }')
 119,125c126,132
 < fieldlist[${#fieldlist[@]}]="${textColor}User:${normal} ${user}${normal}"
 < fieldlist[${#fieldlist[@]}]="${textColor}Hostname:${normal} ${hostname}${normal}"
