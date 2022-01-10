@@ -9,7 +9,7 @@ plugins=(
   common-aliases
   git
   git-extras
-  osx
+  macos
   pip
   python
   sublime
