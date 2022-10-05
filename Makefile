@@ -6,7 +6,7 @@ clean: unlink
 
 brew:
 	@echo "Installing Homebrew..."
-	@(is-executable brew && echo "brew already installed") || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install | /usr/bin/ruby
+	@(is-executable brew && echo "brew already installed") || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
 
 stow: brew
 	@echo "Installing stow..."
