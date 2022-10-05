@@ -64,7 +64,13 @@ path+="/Applications/Sublime Text.app/Contents/SharedSupport/bin/"
 
 export PATH
 
-# Enable conda auto completion
+# Homebrew auto completion
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
+# Enable auto completion
 autoload -U compinit && compinit
 
 # Set up and down arrows to use local history
