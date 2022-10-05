@@ -48,6 +48,7 @@ SPACESHIP_GIT_STATUS_COLOR=magenta
 SPACESHIP_CONDA_SYMBOL="🐍·"
 SPACESHIP_CONDA_COLOR=white
 SPACESHIP_EXEC_TIME_ELAPSED=10
+SPACESHIP_PROMPT_ASYNC=false
 
 # Set an alias to update and upgrade Homebrew packages
 alias bu="brew update; brew upgrade"
@@ -84,7 +85,5 @@ down-line-or-local-history() {
 zle -N down-line-or-local-history
 bindkey '^[OB' down-line-or-local-history   # Cursor down
 
-
 # Run archey (system information display)
-echo ""
-archey -c -p
+archey -c -p -l
