@@ -1,6 +1,6 @@
 PATH := .:$(PATH)
 
-all: brew brew-packages oh-my-zsh zsh-plugins hushlogin link git archey
+all: brew brew-packages oh-my-zsh zsh-plugins hushlogin link git binaries
 
 clean: unlink
 
@@ -30,9 +30,9 @@ brew-packages: brew
 	@echo "Installing Homebrew packages..."
 	@brew bundle --file=install/Brewfile
 
-archey: brew-packages
-	@echo "Customizing archey..."
-	@patch -N --dry-run --silent $(shell which archey) patches/archey.patch 1>/dev/null && patch $(shell which archey) patches/archey.patch || echo "archey already patched"
+binaries:
+	@echo "Installing binaries..."
+	@stow -t $(HOME)/bin bin
 
 zsh-plugins: zsh-spaceship zsh-autosuggestions zsh-syntax-highlighting conda-zsh-completion
 

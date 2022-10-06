@@ -1,6 +1,5 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
-brew "archey"
 brew "carthage"
 brew "fzf"
 brew "git"
