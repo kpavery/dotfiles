@@ -91,5 +91,8 @@ down-line-or-local-history() {
 zle -N down-line-or-local-history
 bindkey '^[OB' down-line-or-local-history   # Cursor down
 
+# Setup fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Run archey (system information display)
 archey -c -p -l
