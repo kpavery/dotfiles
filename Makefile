@@ -32,6 +32,7 @@ brew-packages: brew
 
 binaries:
 	@echo "Installing binaries..."
+	@(test -d $(HOME)/bin || mkdir $(HOME)/bin)
 	@stow -t $(HOME)/bin bin
 
 zsh-plugins: zsh-spaceship zsh-autosuggestions zsh-syntax-highlighting conda-zsh-completion
